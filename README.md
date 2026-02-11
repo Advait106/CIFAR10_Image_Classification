@@ -1,32 +1,26 @@
+# ==================================================
+# CIFAR-10 Image Classification using CNN
+# ==================================================
+
+## Project Overview
 project:
-  title: "CIFAR-10 Image Classification using Convolutional Neural Networks"
+  description: >
+    CNN based image classification on CIFAR-10.
+    A baseline model is built first, followed by an improved
+    architecture using batch normalization, dropout,
+    and data augmentation for higher accuracy.
 
-  overview: >
-    This project develops and evaluates Convolutional Neural Network (CNN) models
-    for multi-class image classification on the CIFAR-10 dataset. A baseline model
-    is first implemented, followed by an improved architecture with normalization,
-    regularization, and augmentation techniques to enhance performance.
-
+## Dataset
 dataset:
   total_images: 60000
   image_size: "32x32 RGB"
   classes: 10
-  train_images: 50000
-  test_images: 10000
-  labels:
-    - airplane
-    - automobile
-    - bird
-    - cat
-    - deer
-    - dog
-    - frog
-    - horse
-    - ship
-    - truck
+  train_samples: 50000
+  test_samples: 10000
 
+## Preprocessing
 preprocessing:
-  normalization: "pixel scaling 0-1"
+  normalization: "0-1 scaling"
   encoding: "one-hot labels"
   augmentation:
     - rotation
@@ -35,68 +29,74 @@ preprocessing:
     - horizontal_flip
     - zoom
 
+## Models
 models:
 
+  ## Baseline CNN
   baseline:
-    architecture:
+    layers:
       - Conv2D
       - Conv2D
       - MaxPooling
-      - Dense classifier
+      - Dense
     test_accuracy: 70.21
-    graphs:
+    plots:
       accuracy_curve: "plots/baseline_accuracy.png"
       loss_curve: "plots/baseline_loss.png"
 
+  ## Improved CNN
   improved:
     enhancements:
-      - additional convolution layer
+      - extra convolution layer
       - batch normalization
       - dropout
       - data augmentation
       - early stopping
       - learning rate scheduler
     test_accuracy: 83.92
-    graphs:
+    plots:
       accuracy_curve: "plots/improved_accuracy.png"
       loss_curve: "plots/improved_loss.png"
 
+## Confusion Matrix
 confusion_matrix:
-  image_path: "plots/confusion_matrix.png"
-  analysis: >
-    Most predictions lie along the diagonal indicating correct classification.
-    Minor confusion occurs between visually similar classes such as cats vs dogs
-    and automobiles vs trucks. Overall class-wise performance is balanced.
+  image: "plots/confusion_matrix.png"
+  notes: >
+    Diagonal values indicate correct predictions.
+    Off-diagonal values show misclassifications.
+    Minor confusion exists between visually similar classes
+    such as cats vs dogs and trucks vs automobiles.
 
+## Results
 results:
   baseline_accuracy: 70.21
   improved_accuracy: 83.92
-  improvement: 13.7
+  improvement_percent: 13.7
 
+## Analysis
 analysis:
-  factors_for_improvement:
+  improvements_due_to:
     - deeper feature extraction
     - batch normalization stabilizing training
     - dropout reducing overfitting
     - augmentation improving robustness
-    - early stopping preventing over-training
-  observation: >
-    Improved model shows smoother convergence, lower validation loss,
-    and stronger generalization across classes.
+    - early stopping preventing overtraining
 
-project_structure:
+## Project Structure
+structure:
   - train.py
   - evaluate.py
   - models/
   - plots/
   - README.md
 
-run_commands:
+## Run Commands
+commands:
   train: "python train.py"
   evaluate: "python evaluate.py"
 
+## Conclusion
 conclusion: >
-  The enhanced CNN architecture significantly improves classification accuracy
-  over the baseline by more than 13 percent. Regularization and augmentation
-  techniques contribute to better generalization. Future work may include
-  transfer learning with pretrained networks or hyperparameter tuning.
+  The improved CNN significantly outperforms the baseline model,
+  achieving better generalization and higher classification accuracy.
+  Future enhancements may include transfer learning and hyperparameter tuning.
