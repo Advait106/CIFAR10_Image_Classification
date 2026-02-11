@@ -47,7 +47,9 @@ Test Accuracy: 83.92%
 <img width="691" height="470" alt="download" src="https://github.com/user-attachments/assets/5eaa104c-3240-4e76-8fbd-1879bfee1844" />
 
 
-#Confusion Matrix
+##Confusion Matrix
+
+
 Diagonal values indicate correct predictions. Off-diagonal values show misclassifications. Minor confusion exists between visually similar classes such as cats vs dogs and trucks vs automobiles.
 
 
@@ -72,18 +74,16 @@ python evaluate.py
 
 ## Analysis
 Improvements due to
-    - deeper feature extraction
-    - batch normalization stabilizing training
-    - dropout reducing overfitting
-    - augmentation improving robustness
-    - early stopping preventing overtraining
+- deeper feature extraction
+- batch normalization stabilizing training
+- dropout reducing overfitting
+- augmentation improving robustness
+- early stopping preventing overtraining
 
 
-##Conclusion
-The improved CNN significantly outperforms the baseline model,
-  achieving better generalization and higher classification accuracy.
-  Future enhancements may include transfer learning and hyperparameter tuning.
 
 ---
 ## Conclusion
-The improved CNN significantly increased performance through deeper architecture, regularization, and augmentation, achieving strong generalization on unseen data.
+
+
+The improved CNN significantly outperforms the baseline model achieving better generalization and higher classification accuracy.Future enhancements may include transfer learning and hyperparameter tuning.
